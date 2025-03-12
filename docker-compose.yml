@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db_trophees:
+    image: mysql:8.0
+    container_name: trophees-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: gestion_trophees
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3308:3306"  # La BDD Trophées tourne sur 3308
+    volumes:
+      - trophees_mysql_data:/var/lib/mysql
+    networks:
+      - trophees-network  # Réseau spécifique à Trophées
+
+networks:
+  trophees-network:
+
+volumes:
+  trophees_mysql_data:

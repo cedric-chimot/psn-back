@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class TropheesService {
+public class JeuxService {
 }

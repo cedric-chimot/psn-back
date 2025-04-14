@@ -12,11 +12,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "trophees")
-public class Trophees {
+public class Jeux {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
+
+  @Column(name = "jeu")
+  private String jeu;
 
 }

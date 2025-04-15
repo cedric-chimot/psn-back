@@ -18,4 +18,15 @@ public class Plateforme {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
+
+  @Column(name = "plateforme")
+  private String plateforme;
+
+  @Override
+  public String toString() {
+    return "Plateforme{" +
+      "id=" + id +
+      ", plateforme='" + plateforme + '\'' +
+      '}';
+  }
 }

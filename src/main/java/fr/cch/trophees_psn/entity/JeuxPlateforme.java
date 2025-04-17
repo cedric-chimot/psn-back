@@ -20,11 +20,11 @@ public class JeuxPlateforme {
   private Long id;
 
   @ManyToOne
-  @JoinColumn(name = "jeu_id", nullable = false)
+  @JoinColumn(name = "id_jeu", nullable = false)
   private Jeux jeu;
 
   @ManyToOne
-  @JoinColumn(name = "plateforme_id", nullable = false)
+  @JoinColumn(name = "id_plateforme", nullable = false)
   private Plateforme plateforme;
 
   @Column(name = "nb_platine")

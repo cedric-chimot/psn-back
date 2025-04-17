@@ -30,8 +30,8 @@ public class Jeux {
   @ManyToMany
   @JoinTable(
     name = "jeux_plateforme",
-    joinColumns = @JoinColumn(name = "jeu_id"),
-    inverseJoinColumns = @JoinColumn(name = "plateforme_id")
+    joinColumns = @JoinColumn(name = "id_jeu"),
+    inverseJoinColumns = @JoinColumn(name = "id_plateforme")
   )
   private Set<Plateforme> plateformes = new HashSet<>();
 

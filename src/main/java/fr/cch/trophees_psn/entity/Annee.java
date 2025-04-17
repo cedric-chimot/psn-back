@@ -26,6 +26,10 @@ public class Annee {
   private String annee;
 
   @JsonIgnore
+  @OneToMany(mappedBy = "tropheeAnnee")
+  private List<StatsTrophees> trophees;
+
+  @JsonIgnore
   @OneToMany(mappedBy = "niveauAnnee")
   private List<StatsNiveaux> niveaux;
 

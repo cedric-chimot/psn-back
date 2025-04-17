@@ -11,27 +11,39 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "stats_niveaux")
-public class StatsNiveaux {
+@Table(name = "stats_trophees")
+public class StatsTrophees {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "niveau")
-  private Long niveau;
+  @Column(name = "nb_platine")
+  private Long nbPlatine;
+
+  @Column(name = "nb_or")
+  private Long nbOr;
+
+  @Column(name = "nb_argent")
+  private Long nbArgent;
+
+  @Column(name = "nb_bronze")
+  private Long nbBronze;
 
   @ManyToOne
   @JoinColumn(name = "id_annee", nullable = false)
-  private Annee niveauAnnee;
+  private Annee tropheeAnnee;
 
   @Override
   public String toString() {
-    return "StatsNiveaux{" +
+    return "StatsTrophees{" +
       "id=" + id +
-      ", niveau=" + niveau +
-      ", niveauAnnee=" + niveauAnnee +
+      ", nbPlatine=" + nbPlatine +
+      ", nbOr=" + nbOr +
+      ", nbArgent=" + nbArgent +
+      ", nbBronze=" + nbBronze +
+      ", tropheeAnnee=" + tropheeAnnee +
       '}';
   }
 

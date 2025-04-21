@@ -13,8 +13,15 @@ import java.util.Map;
 @CrossOrigin
 public class JeuxController {
 
+  /**
+   * Variable pour appeler le service
+   */
   public final JeuxService jeuxService;
 
+  /**
+   * Le constructeur
+   * @param jeuxService injection du service jeux
+   */
   public JeuxController(JeuxService jeuxService) {
     this.jeuxService = jeuxService;
   }
@@ -67,7 +74,7 @@ public class JeuxController {
    */
   @DeleteMapping("/delete/{id}")
   public Jeux deleteJeuById(@PathVariable Long id) {
-    return jeuxService.deletById(id);
+    return jeuxService.deleteById(id);
   }
 
   /**

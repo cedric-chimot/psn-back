@@ -13,13 +13,13 @@ import java.util.Optional;
 @Transactional
 public class PlateformeService {
 
-  /*
-   * Injection du répository
-   * */
+  /**
+   * Variable pour appeler le répository
+   */
   private final PlateformeRepository plateformeRepository;
 
   /**
-   * Controller du service
+   * Constructeur du service
    * @param plateformeRepository le répo des plateformes
    */
   public PlateformeService(PlateformeRepository plateformeRepository) {

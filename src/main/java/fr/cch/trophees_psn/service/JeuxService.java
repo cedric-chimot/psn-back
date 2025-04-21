@@ -16,9 +16,9 @@ import java.util.Optional;
 @Transactional
 public class JeuxService {
 
-  /*
-  * Injection du répository
-  * */
+  /**
+   * Variable pour appeler le répository
+   */
   private final JeuxRepository jeuxRepository;
 
   /**
@@ -79,7 +79,7 @@ public class JeuxService {
    * @param id l'id du jeu à supprimer
    * @return le jeu supprimé
    */
-  public Jeux deletById(Long id) {
+  public Jeux deleteById(Long id) {
     Optional<Jeux> optionalJeux = jeuxRepository.findById(id);
 
     if (optionalJeux.isPresent()) {

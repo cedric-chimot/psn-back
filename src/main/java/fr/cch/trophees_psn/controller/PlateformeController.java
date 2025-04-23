@@ -73,7 +73,7 @@ public class PlateformeController {
    */
   @DeleteMapping("/delete/{id}")
   public Plateforme deletePlateformeById(@PathVariable Long id) {
-    return plateformeService.deletById(id);
+    return plateformeService.deleteById(id);
   }
 
   /**

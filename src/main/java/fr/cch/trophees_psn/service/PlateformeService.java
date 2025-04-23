@@ -76,7 +76,7 @@ public class PlateformeService {
    * @param id l'id de la plateforme à supprimer
    * @return la plateforme supprimée
    */
-  public Plateforme deletById(Long id) {
+  public Plateforme deleteById(Long id) {
     Optional<Plateforme> optionalPlateforme = plateformeRepository.findById(id);
 
     if (optionalPlateforme.isPresent()) {

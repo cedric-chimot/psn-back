@@ -52,6 +52,7 @@ public class JeuxPlateforme {
       ", nbOr=" + nbOr +
       ", nbArgent=" + nbArgent +
       ", nbBronze=" + nbBronze +
+      ", nbHeures=" + nbHeures +
       '}';
   }
 }

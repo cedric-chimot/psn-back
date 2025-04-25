@@ -39,6 +39,9 @@ public class JeuxPlateforme {
   @Column(name = "nb_bronze")
   private Long nbBronze;
 
+  @Column(name = "nb_heures")
+  private Long nbHeures;
+
   @Override
   public String toString() {
     return "JeuxPlateforme{" +

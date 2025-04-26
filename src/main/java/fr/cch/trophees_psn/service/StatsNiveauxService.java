@@ -45,8 +45,8 @@ public class StatsNiveauxService {
 
   /**
    * Trouver une statistique par son Id
-   * @param id l'id de la statsNiveaux
-   * @return la statsNiveaux trouvé
+   * @param id l'id de la statistique
+   * @return la statistique trouvé
    */
   public StatsNiveaux findStatsNiveauxById(Long id) {
     return statsNiveauxRepository.findById(id)

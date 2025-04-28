@@ -1,5 +1,6 @@
 package fr.cch.trophees_psn.service;
 
+import fr.cch.trophees_psn.entity.Annee;
 import fr.cch.trophees_psn.entity.StatsTrophees;
 import fr.cch.trophees_psn.exceptions.CustomException;
 import fr.cch.trophees_psn.repository.StatsTropheesRepository;
@@ -19,19 +20,33 @@ public class StatsTropheesService {
   private final StatsTropheesRepository statsTropheesRepository;
 
   /**
+   * Appel du service des années
+   */
+  private final AnneeService anneeService;
+
+  /**
    * Constructeur du service
    * @param statsTropheesRepository le répo des statistiques de trophees
    */
-  public StatsTropheesService(StatsTropheesRepository statsTropheesRepository) {
+  public StatsTropheesService(StatsTropheesRepository statsTropheesRepository, AnneeService anneeService) {
     this.statsTropheesRepository = statsTropheesRepository;
+    this.anneeService = anneeService;
   }
 
   /**
-   * Ajouter une statistique
-   * @param statsTrophees la statistique à ajouter
-   * @return la nouvelle statistique
+   * Ajouter le nombre de trophées pour une année
+   * @param nbPlatine le nombre de platine
+   * @param nbOr le nombre de trophées or
+   * @param nbArgent le nombre de trophées argent
+   * @param nbBronze le nombre de trophées bronze
+   * @param idAnnee l'identifiant de l'année
+   * @return Le nombre de trophées pour une année
    */
-  public StatsTrophees statsTropheesSave(StatsTrophees statsTrophees) {
+  public StatsTrophees statsTropheesSave(Long nbPlatine, Long nbOr, Long nbArgent, Long nbBronze,
+                                         Long idAnnee) {
+    Annee annee = anneeService.findAnneeById(idAnnee);
+
+    StatsTrophees statsTrophees = new StatsTrophees(nbPlatine, nbOr, nbArgent, nbBronze, annee);
     return statsTropheesRepository.save(statsTrophees);
   }
 

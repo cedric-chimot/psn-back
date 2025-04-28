@@ -35,6 +35,14 @@ public class StatsTrophees {
   @JoinColumn(name = "id_annee", nullable = false)
   private Annee tropheeAnnee;
 
+  public StatsTrophees(Long nbPlatine, Long nbOr, Long nbArgent, Long nbBronze, Annee tropheeAnnee) {
+    this.nbPlatine = nbPlatine;
+    this.nbOr = nbOr;
+    this.nbArgent = nbArgent;
+    this.nbBronze = nbBronze;
+    this.tropheeAnnee = tropheeAnnee;
+  }
+
   @Override
   public String toString() {
     return "StatsTrophees{" +

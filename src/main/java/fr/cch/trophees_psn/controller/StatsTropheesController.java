@@ -32,7 +32,13 @@ public class StatsTropheesController {
    */
   @PostMapping("/create")
   public ResponseEntity<StatsTrophees> createStatsTrophees(@RequestBody StatsTrophees statsTrophees) {
-    StatsTrophees savedStatsTrophees = statsTropheesService.statsTropheesSave(statsTrophees);
+    StatsTrophees savedStatsTrophees = statsTropheesService.statsTropheesSave(
+      statsTrophees.getNbPlatine(),
+      statsTrophees.getNbOr(),
+      statsTrophees.getNbArgent(),
+      statsTrophees.getNbBronze(),
+      statsTrophees.getTropheeAnnee().getId()
+    );
     return ResponseEntity.ok(savedStatsTrophees);
   }
 

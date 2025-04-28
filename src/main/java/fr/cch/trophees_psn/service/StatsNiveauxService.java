@@ -1,5 +1,6 @@
 package fr.cch.trophees_psn.service;
 
+import fr.cch.trophees_psn.entity.Annee;
 import fr.cch.trophees_psn.entity.StatsNiveaux;
 import fr.cch.trophees_psn.exceptions.CustomException;
 import fr.cch.trophees_psn.repository.StatsNiveauxRepository;
@@ -19,19 +20,29 @@ public class StatsNiveauxService {
   private final StatsNiveauxRepository statsNiveauxRepository;
 
   /**
+   * Appel du service des années
+   */
+  private final AnneeService anneeService;
+
+  /**
    * Constructeur du service
    * @param statsNiveauxRepository le répo des statistiques de niveau
    */
-  public StatsNiveauxService(StatsNiveauxRepository statsNiveauxRepository) {
+  public StatsNiveauxService(StatsNiveauxRepository statsNiveauxRepository, AnneeService anneeService) {
     this.statsNiveauxRepository = statsNiveauxRepository;
+    this.anneeService = anneeService;
   }
 
   /**
    * Ajouter une statistique
-   * @param statsNiveaux la statistique à ajouter
+   * @param niveau le niveau
+   * @param idAnnee le niveau par année
    * @return la nouvelle statistique
    */
-  public StatsNiveaux statsNiveauxSave(StatsNiveaux statsNiveaux) {
+  public StatsNiveaux statsNiveauxSave(Long niveau, Long idAnnee) {
+    Annee annee = anneeService.findAnneeById(idAnnee);
+
+    StatsNiveaux statsNiveaux = new StatsNiveaux(niveau, annee);
     return statsNiveauxRepository.save(statsNiveaux);
   }
 
@@ -46,7 +57,7 @@ public class StatsNiveauxService {
   /**
    * Trouver une statistique par son Id
    * @param id l'id de la statistique
-   * @return la statistique trouvé
+   * @return la statistique trouvée
    */
   public StatsNiveaux findStatsNiveauxById(Long id) {
     return statsNiveauxRepository.findById(id)

@@ -32,7 +32,10 @@ public class StatsNiveauxController {
    */
   @PostMapping("/create")
   public ResponseEntity<StatsNiveaux> createStatsNiveaux(@RequestBody StatsNiveaux statsNiveaux) {
-    StatsNiveaux savedStatsNiveaux = statsNiveauxService.statsNiveauxSave(statsNiveaux);
+    StatsNiveaux savedStatsNiveaux = statsNiveauxService.statsNiveauxSave(
+      statsNiveaux.getNiveau(),
+      statsNiveaux.getNiveauAnnee().getId()
+    );
     return ResponseEntity.ok(savedStatsNiveaux);
   }
 

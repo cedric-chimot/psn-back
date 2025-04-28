@@ -26,6 +26,11 @@ public class StatsNiveaux {
   @JoinColumn(name = "id_annee", nullable = false)
   private Annee niveauAnnee;
 
+  public StatsNiveaux(Long niveau, Annee annee) {
+    this.niveau = niveau;
+    this.niveauAnnee = annee;
+  }
+
   @Override
   public String toString() {
     return "StatsNiveaux{" +

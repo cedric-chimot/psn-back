@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/jeuxPlateforme")
 @CrossOrigin
-public class JeuxPlatefromeController {
+public class JeuxPlateformeController {
 
 }

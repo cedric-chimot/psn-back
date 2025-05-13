@@ -42,6 +42,16 @@ public class JeuxPlateforme {
   @Column(name = "nb_heures")
   private Long nbHeures;
 
+  public JeuxPlateforme(Jeux jeu, Plateforme plateforme, Long nbPlatine, Long nbOr, Long nbArgent, Long nbBronze, Long nbHeures) {
+    this.jeu = jeu;
+    this.plateforme = plateforme;
+    this.nbPlatine = nbPlatine;
+    this.nbOr = nbOr;
+    this.nbArgent = nbArgent;
+    this.nbBronze = nbBronze;
+    this.nbHeures = nbHeures;
+  }
+
   @Override
   public String toString() {
     return "JeuxPlateforme{" +

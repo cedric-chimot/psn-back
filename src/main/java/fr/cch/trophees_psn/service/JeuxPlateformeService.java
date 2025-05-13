@@ -46,7 +46,7 @@ public class JeuxPlateformeService {
    * @param jeu l'association à ajouter
    * @return la nouvelle association ajoutée
    */
-  public JeuxPlateforme jeuSave(Long idJeu, Long idPlateforme, Long nbPlatine, Long nbOr, Long nbArgent,
+  public JeuxPlateforme jeuPlateformeSave(Long idJeu, Long idPlateforme, Long nbPlatine, Long nbOr, Long nbArgent,
                                 Long nbBronze, Long nbHeures) {
     Jeux jeu = jeuxService.findJeuById(idJeu);
     Plateforme plateforme = plateformeService.findPlateformeById(idPlateforme);
@@ -68,7 +68,7 @@ public class JeuxPlateformeService {
    * @param id l'id de l'association jeux/plateforme
    * @return l'association jeux/plateforme trouvé
    */
-  public JeuxPlateforme findJeuById(Long id) {
+  public JeuxPlateforme findJeuxPlateformeById(Long id) {
     return jeuxPlateformeRepository.findById(id)
       .orElseThrow(() -> new CustomException("Jeu", "id", id));
   }
@@ -78,7 +78,7 @@ public class JeuxPlateformeService {
    * @param jeu l'association jeux/plateforme à mettre à jour
    * @return l'association jeux/plateforme mise à jour
    */
-  public JeuxPlateforme updateJeu(JeuxPlateforme jeuPlateforme) {
+  public JeuxPlateforme updateJeuxPlateforme(JeuxPlateforme jeuPlateforme) {
     Optional<JeuxPlateforme> existingJeuxPlateforme = jeuxPlateformeRepository.findById(jeuPlateforme.getId());
 
     if(existingJeuxPlateforme.isPresent()) {

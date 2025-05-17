@@ -1,6 +1,7 @@
 package fr.cch.trophees_psn.service;
 
 import fr.cch.trophees_psn.entity.Jeux;
+import fr.cch.trophees_psn.entity.Plateforme;
 import fr.cch.trophees_psn.exceptions.CustomException;
 import fr.cch.trophees_psn.repository.JeuxRepository;
 import jakarta.transaction.Transactional;
@@ -22,20 +23,36 @@ public class JeuxService {
   private final JeuxRepository jeuxRepository;
 
   /**
+   * Appel du service des plateformes
+   */
+  private final PlateformeService plateformeService;
+
+  /**
    * Controller du service
    * @param jeuxRepository le répo des jeux
+   * @param plateformeService le service des plateformes
    */
-  public JeuxService(JeuxRepository jeuxRepository) {
+  public JeuxService(JeuxRepository jeuxRepository, PlateformeService plateformeService) {
     this.jeuxRepository = jeuxRepository;
+    this.plateformeService = plateformeService;
   }
 
   /**
    * Ajouter un jeu
-   * @param jeu le jeu à ajouter
-   * @return le nouveau jeu
+   * @param jeu le nom du jeu
+   * @param idPlateforme la plateforme
+   * @param nbPlatine le nombre de trophées platine
+   * @param nbOr le nombre de trophées or
+   * @param nbArgent le nombre de trophées argent
+   * @param nbBronze le nombre de trophées bronze
+   * @param nbHeures le nombre d'heures de jeu
+   * @return le nouveau jeu ajouté
    */
-  public Jeux jeuSave(Jeux jeu) {
-    return jeuxRepository.save(jeu);
+  public Jeux jeuSave(String jeu, Long idPlateforme, Long nbPlatine, Long nbOr, Long nbArgent, Long nbBronze, Long nbHeures) {
+    Plateforme plateforme = plateformeService.findPlateformeById(idPlateforme);
+
+    Jeux jeux = new Jeux(jeu, plateforme, nbPlatine, nbOr, nbArgent, nbBronze, nbHeures);
+    return jeuxRepository.save(jeux);
   }
 
   /**
@@ -68,6 +85,12 @@ public class JeuxService {
       Jeux existingJeu = existingJeux.get();
 
       existingJeu.setJeu(jeu.getJeu());
+      existingJeu.setPlateforme(jeu.getPlateforme());
+      existingJeu.setNbPlatine(jeu.getNbPlatine());
+      existingJeu.setNbOr(jeu.getNbOr());
+      existingJeu.setNbArgent(jeu.getNbArgent());
+      existingJeu.setNbBronze(jeu.getNbBronze());
+      existingJeu.setNbHeures(jeu.getNbHeures());
       return jeuxRepository.save(existingJeu);
     } else {
       throw new CustomException("Le jeu est inconnu", "id", jeu.getId());

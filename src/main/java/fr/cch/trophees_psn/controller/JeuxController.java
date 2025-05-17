@@ -33,7 +33,15 @@ public class JeuxController {
    */
   @PostMapping("/create")
   public ResponseEntity<Jeux> createJeu(@RequestBody Jeux jeu) {
-    Jeux savedJeu = jeuxService.jeuSave(jeu);
+    Jeux savedJeu = jeuxService.jeuSave(
+      jeu.getJeu(),
+      jeu.getPlateforme().getId(),
+      jeu.getNbPlatine(),
+      jeu.getNbOr(),
+      jeu.getNbArgent(),
+      jeu.getNbBronze(),
+      jeu.getNbHeures()
+      );
     return ResponseEntity.ok(savedJeu);
   }
 

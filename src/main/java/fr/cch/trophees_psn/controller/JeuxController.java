@@ -33,6 +33,12 @@ public class JeuxController {
    */
   @PostMapping("/create")
   public ResponseEntity<Jeux> createJeu(@RequestBody Jeux jeu) {
+    System.out.println("Reçu jeu : " + jeu);
+    if (jeu.getPlateforme() == null) {
+      System.out.println("Plateforme est null !");
+    } else {
+      System.out.println("Plateforme ID = " + jeu.getPlateforme().getId());
+    }
     Jeux savedJeu = jeuxService.jeuSave(
       jeu.getJeu(),
       jeu.getPlateforme().getId(),
@@ -41,7 +47,7 @@ public class JeuxController {
       jeu.getNbArgent(),
       jeu.getNbBronze(),
       jeu.getNbHeures()
-      );
+    );
     return ResponseEntity.ok(savedJeu);
   }
 

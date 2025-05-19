@@ -60,7 +60,7 @@ public class JeuxService {
    * @return la liste de tous les jeux
    */
   public List<Jeux> findAllJeux() {
-    return jeuxRepository.findAll();
+    return jeuxRepository.findAllSortedByNbHeures();
   }
 
   /**

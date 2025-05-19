@@ -56,7 +56,7 @@ public class JeuxService {
   }
 
   /**
-   * Trouver tous les jeux
+   * Trouver tous les jeux ordonnés par le nombre d'heures de jeux potentielles
    * @return la liste de tous les jeux
    */
   public List<Jeux> findAllJeux() {

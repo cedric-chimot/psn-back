@@ -16,4 +16,4 @@
 
 ### 🔗 Liens
 
-**[Frontend Repository](https://github.com/cedric-chimot/psn-front)** : Le lien vers le repository GitHub contenant le code backend.
+**[Frontend Repository](https://github.com/cedric-chimot/psn-front)** : Le lien vers le repository GitHub contenant le code frontend.

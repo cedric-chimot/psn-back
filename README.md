@@ -1,5 +1,7 @@
 # 🚀 Projet PSN
 
+## _Liste des jeux à faire avec total des trophées potentiellement obtenable, totaux éventuels et statistiques par années_
+
 ### _Le MCD_
 
 ![Capture d'écran 2025-05-20 102549](https://github.com/user-attachments/assets/6fc38d23-cc6b-4396-b4b3-7cb1a373ac43)

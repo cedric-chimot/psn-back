@@ -1,4 +1,4 @@
-# Projet PSN
+# 🚀 Projet PSN
 
 ### _Le MCD_
 

@@ -13,3 +13,7 @@
 ### _La BDD Workbench_
 
 ![Capture d'écran 2025-05-20 102707](https://github.com/user-attachments/assets/911d77a6-021d-4b1f-8306-331ee0a2a790)
+
+### 🔗 Liens
+
+**[Frontend Repository](https://github.com/cedric-chimot/psn-front)** : Le lien vers le repository GitHub contenant le code backend.

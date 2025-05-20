@@ -1,6 +1,6 @@
 # 🚀 Projet PSN
 
-## _Liste des jeux à faire avec total des trophées potentiellement obtenable, totaux éventuels et statistiques par années_
+## _Liste des jeux à faire avec total des trophées potentiellement obtenables, totaux éventuels et statistiques par années_
 
 ### _Le MCD_
 

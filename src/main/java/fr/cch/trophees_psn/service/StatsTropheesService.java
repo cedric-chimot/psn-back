@@ -51,11 +51,11 @@ public class StatsTropheesService {
   }
 
   /**
-   * Trouver toutes les statistiques
+   * Trouver toutes les statistiques classées par année en ordre décroissant
    * @return la liste de toutes les statistiques
    */
   public List<StatsTrophees> findAllStatsTrophees() {
-    return statsTropheesRepository.findAll();
+    return statsTropheesRepository.findAllSortedByAnnees();
   }
 
   /**

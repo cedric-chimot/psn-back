@@ -79,11 +79,16 @@ public class StatsTropheesService {
     if(existingStatsTrophees.isPresent()) {
       StatsTrophees existingStats = existingStatsTrophees.get();
 
-      existingStats.setNbPlatine(statsTrophees.getNbPlatine());
-      existingStats.setNbOr(statsTrophees.getNbOr());
-      existingStats.setNbArgent(statsTrophees.getNbArgent());
-      existingStats.setNbBronze(statsTrophees.getNbBronze());
-      existingStats.setTropheeAnnee(statsTrophees.getTropheeAnnee());
+      existingStats.setNbPlatine(statsTrophees.getNbPlatine() != null ? statsTrophees.getNbPlatine() : existingStats.getNbPlatine());
+      existingStats.setNbOr(statsTrophees.getNbOr() != null ? statsTrophees.getNbOr() : existingStats.getNbOr());
+      existingStats.setNbArgent(statsTrophees.getNbArgent() != null ? statsTrophees.getNbArgent() : existingStats.getNbArgent());
+      existingStats.setNbBronze(statsTrophees.getNbBronze() != null ? statsTrophees.getNbBronze() : existingStats.getNbBronze());
+
+      if (statsTrophees.getTropheeAnnee() != null) {
+        Annee annee = anneeService.findAnneeById(statsTrophees.getTropheeAnnee().getId());
+        existingStats.setTropheeAnnee(annee);
+      }
+
       return statsTropheesRepository.save(existingStats);
     } else {
       throw new CustomException("Le statsTrophees est inconnu", "id", statsTrophees.getId());

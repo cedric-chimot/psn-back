@@ -47,11 +47,11 @@ public class StatsNiveauxService {
   }
 
   /**
-   * Trouver toutes les statistiques
+   * Trouver toutes les statistiques classées par année en ordre décroissant
    * @return la liste de toutes les statistiques
    */
   public List<StatsNiveaux> findAllStatsNiveaux() {
-    return statsNiveauxRepository.findAll();
+    return statsNiveauxRepository.findAllSortedByAnnees();
   }
 
   /**

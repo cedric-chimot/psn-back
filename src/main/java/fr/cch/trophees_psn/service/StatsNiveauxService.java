@@ -75,8 +75,13 @@ public class StatsNiveauxService {
     if(existingStatsNiveaux.isPresent()) {
       StatsNiveaux existingStats = existingStatsNiveaux.get();
 
-      existingStats.setNiveau(statsNiveaux.getNiveau());
-      existingStats.setNiveauAnnee(statsNiveaux.getNiveauAnnee());
+      existingStats.setNiveau(statsNiveaux.getNiveau() != null ? statsNiveaux.getNiveau() : existingStats.getNiveau());
+
+      if (statsNiveaux.getNiveauAnnee() != null) {
+        Annee annee = anneeService.findAnneeById(statsNiveaux.getNiveauAnnee().getId());
+        existingStats.setNiveauAnnee(annee);
+      }
+
       return statsNiveauxRepository.save(existingStats);
     } else {
       throw new CustomException("Le statsNiveaux est inconnu", "id", statsNiveaux.getId());

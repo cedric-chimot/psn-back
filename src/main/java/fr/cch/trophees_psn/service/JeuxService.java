@@ -1,5 +1,6 @@
 package fr.cch.trophees_psn.service;
 
+import fr.cch.trophees_psn.entity.Annee;
 import fr.cch.trophees_psn.entity.Jeux;
 import fr.cch.trophees_psn.entity.Plateforme;
 import fr.cch.trophees_psn.exceptions.CustomException;
@@ -85,7 +86,12 @@ public class JeuxService {
       Jeux existingJeu = existingJeux.get();
 
       existingJeu.setJeu(jeu.getJeu());
-      existingJeu.setPlateforme(jeu.getPlateforme());
+
+      if (jeu.getPlateforme() != null) {
+        Plateforme plateforme = plateformeService.findPlateformeById(jeu.getPlateforme().getId());
+        existingJeu.setPlateforme(plateforme);
+      }
+
       existingJeu.setNbPlatine(jeu.getNbPlatine());
       existingJeu.setNbOr(jeu.getNbOr());
       existingJeu.setNbArgent(jeu.getNbArgent());
